@@ -28,18 +28,21 @@ class AlienInvasion:
     def run_game(self):
         # start the main loop for the game
         while True:
-            # Watch for ketboard and mouse events
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
+            self._check_events()
 
             # redraw the screen during each pass though the loop
             self.screen.fill(self.settings.bg_color)
 
-            self.ship.blitme()
+    def _check_events(self):
+        # responf to keypreses and mouse evetns
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
 
-            # Make the most recently drawn screen visible.
-            pygame.display.flip()
+        self.ship.blitme()
+
+        # Make the most recently drawn screen visible.
+        pygame.display.flip()
 
 
 if __name__ == "__main__":
