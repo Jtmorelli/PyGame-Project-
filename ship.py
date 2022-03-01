@@ -11,7 +11,9 @@ class Ship:
 
         # load the ship image and get its rect
 
-        self.image = pygame.image.load("images/ship.bmp")
+        self.image = pygame.image.load(
+            "MIS 5322 - Advanced Python/PyGame Project/ship.bmp"
+        )
         self.rect = self.image.get_rect()
 
         # start a new ship at the bottom center of the screen
