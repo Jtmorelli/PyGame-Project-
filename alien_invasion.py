@@ -24,6 +24,7 @@ class AlienInvasion:
         self.bg_color = (230, 230, 230)
 
         self.ship = Ship(self)
+        self.bullets = pygame.sprite.Group()
 
     def run_game(self):
         # start the main loop for the game
