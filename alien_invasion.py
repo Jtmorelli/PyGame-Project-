@@ -74,7 +74,7 @@ class AlienInvasion:
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
             # reset game stat
-            self.settings.initialized_dynamic_settings()
+            self.settings.initialize_dynamic_settings()
             self.stats.reset_stats()
             self.stats.game_active = True
 
@@ -130,6 +130,10 @@ class AlienInvasion:
         # check for hits
         # get rid of bullet and alien if hit
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+
+        if collisions:
+            self.stats.score += self.settings.alien_points
+            self.sb.prep_score()
 
         if not self.aliens:
             # destory existing bullets and create new bullets
