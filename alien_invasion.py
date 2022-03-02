@@ -130,6 +130,7 @@ class AlienInvasion:
             # destory existing bullets and create new bullets
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
     def _update_aliens(self):
         # check if fleet is at an edge the update the positions of all aliens in fleet
