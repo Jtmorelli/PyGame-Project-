@@ -65,7 +65,7 @@ class AlienInvasion:
         # create a new bullet and add it to bullet group
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+            self.bullets.add(new_bullet)
 
     def _update_bullets(self):
         # update postion of bullets and get tid of old bullets
@@ -76,7 +76,6 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
-        print(len(self.bullets))
 
     def _update_screen(self):
         # update images on screen and flip to new screen
