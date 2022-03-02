@@ -18,11 +18,11 @@ class Button:
         self.rect.center = self.screen_rect.center
 
         # the nuttons message need to be prepeed only once
-        self.prep_msg(msg)
+        self._prep_msg(msg)
 
     def _prep_msg(self, msg):
         # turn msg into a rendered image and center rext on the button
-        self.msg_image = self.font.render(msg, True, self.text_color, self.buttom_color)
+        self.msg_image = self.font.render(msg, True, self.text_color, self.button_color)
         self.msg_image_rect = self.msg_image.get_rect()
         self.msg_image_rect.center = self.rect.center
 
