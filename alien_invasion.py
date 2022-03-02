@@ -3,6 +3,7 @@ import sys
 import pygame
 
 from settings import Settings
+from game_stats import GameStats
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
@@ -24,6 +25,9 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion")
         # set backrounf color
         self.bg_color = (230, 230, 230)
+
+        # create instance to stoe game stats
+        self.stats = GameStats(self)
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
@@ -104,7 +108,23 @@ class AlienInvasion:
 
         # look for alien-ship collisions
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
-            print("Ship hit!!!")
+            self._ship_hit()
+
+    def _ship_hit(self):
+        # respoinf to collision
+        # decrement ship_left
+        self.stats.ships_left -= 1
+
+        # get rid of any remaining aliens and bullets
+        self.aliens.empty()
+        self.bullets.empty()
+
+        # create a new fleet and center ship
+        self._create_fleet()
+        self.ship.center_ship()
+
+        # pause
+        sleep(0.5)
 
     def _create_fleet(self):
         # create the fleet of aliens
