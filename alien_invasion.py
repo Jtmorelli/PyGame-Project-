@@ -37,6 +37,9 @@ class AlienInvasion:
 
         self._create_fleet()
 
+        # make play button
+        self.play_button = Button(self, "Play")
+
     def run_game(self):
         # start the main loop for the game
         while True:
@@ -199,6 +202,10 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.aliens.draw(self.screen)
+
+        # draw play button if game inactive
+        if not self.stats.gmae_active:
+            self.play_button.draw_button()
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()
