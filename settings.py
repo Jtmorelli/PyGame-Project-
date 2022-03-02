@@ -34,3 +34,9 @@ class Settings:
 
         # fleet direction 1 = right -1 = left
         self.fleet_direction = 1
+
+    def increase_speed(self):
+        # increase speed settings
+        self.ship_speed *= self.speedup_scale
+        self.bullet_speed *= self.speedup_scale
+        self.alien_speed *= self.speedup_scale
