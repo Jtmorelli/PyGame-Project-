@@ -53,7 +53,7 @@ class AlienInvasion:
         elif event.key == pygame.K_q:
             sys.exit()
         elif event.key == pygame.K_SPACE:
-            self.fire_bullet()
+            self._fire_bullet()
 
     def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT:
@@ -64,7 +64,7 @@ class AlienInvasion:
     def _fire_bullet(self):
         # create a new bullet and add it to bullet group
         new_bullet = Bullet(self)
-        self.bullet.add(new_bullet)
+        self.bullets.add(new_bullet)
 
     def _update_screen(self):
         # update images on screen and flip to new screen
