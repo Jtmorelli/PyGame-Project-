@@ -77,6 +77,7 @@ class AlienInvasion:
             self.settings.initialize_dynamic_settings()
             self.stats.reset_stats()
             self.stats.game_active = True
+            self.sb.prep_score()
 
             # hide mouse cursos
             pygame.mouse.set_visible(False)
