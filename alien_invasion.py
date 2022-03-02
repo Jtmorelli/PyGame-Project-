@@ -126,6 +126,15 @@ class AlienInvasion:
         # pause
         sleep(0.5)
 
+    def _check_aliens_bottom(self):
+        # check if aliens reach bottom
+        screen_rect = self.screen.get_rect()
+        for alien in self.aliens.sprites():
+            if alien.rect.bottom >= screen_rect.bottom:
+                # treat this the same as if ship got hit
+                self._ship_hit()
+                break
+
     def _create_fleet(self):
         # create the fleet of aliens
         # make an alien and find number of aliens in a row
